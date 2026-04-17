@@ -32,7 +32,7 @@ def allocate_laptops(people: List[Person], laptops: List[Laptop]) -> Dict[Person
     for person in people:
         for laptop in laptops:
             if person.preferred_operating_system[0] == laptop.operating_system:
-                allocation[person.name] = laptop
+                allocation[person.name] = {laptop}
                 break
     return allocation
     
