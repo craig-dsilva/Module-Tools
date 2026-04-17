@@ -31,9 +31,16 @@ def allocate_laptops(people: List[Person], laptops: List[Laptop]) -> Dict[Person
     allocation = {}
     for person in people:
         for laptop in laptops:
-            if person.preferred_operating_system[0] == laptop.operating_system:
-                allocation[person.name] = {laptop}
-                break
+            for os in person.preferred_operating_system:
+                if person.preferred_operating_system.count(os) > 0:
+                    sadness = person.preferred_operating_system.index(os)
+                    allocation[person.name] = {"Sadness": sadness, "Laptop": laptop}
+                    laptops.remove(laptop)
+                    break
+                else:
+                    allocation[person.name] = {"Sadness": 100, "Laptop": laptop}
+                    laptops.remove(laptop)
+                    break
     return allocation
     
 
@@ -50,3 +57,5 @@ laptops = [
     Laptop(id=4, manufacturer="Apple", model="MacBook", screen_size_in_inches=13, operating_system=OperatingSystem.MACOS),
 ]
 
+
+print(allocate_laptops(people, laptops))
