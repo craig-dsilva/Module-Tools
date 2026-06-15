@@ -10,7 +10,7 @@ args = parser.parse_args()
 show_lines = args.number
 non_blank = args.nonblank
 
-if show_lines == True and non_blank == True:
+if show_lines and non_blank:
     print("Error: Cannot use -n and -b together. Please use only one flag at a time.")
     exit()
 
@@ -24,15 +24,15 @@ for file in args.path:
 text_list = text.split("\n")
 text_list.pop(len(text_list) - 1)
 
-if (show_lines == False and non_blank == False):
+if not show_lines and not non_blank:
     print("\n".join(text_list))
     exit()
 
 for line in text_list:
-    if non_blank == True and line != "":
+    if non_blank and line != "":
         print("     " + str(i) + " " + line)
         i += 1
-    elif non_blank == False:
+    elif not non_blank:
         print("     " + str(i) + " " + line)
         i += 1
     else:

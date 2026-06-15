@@ -16,14 +16,14 @@ one_per_line = args.one
 contents = []
 
 for f in listdir(path):
-    if show_hidden == False and f[0] != ".":
+    if not show_hidden and f[0] != ".":
         contents.append(f)
-    if show_hidden == True:
+    if show_hidden:
         contents.append(f)
 
 contents.sort()
 
-if one_per_line == True:
+if one_per_line:
     print("\n".join(contents))
 else:
     print("  ".join(contents))

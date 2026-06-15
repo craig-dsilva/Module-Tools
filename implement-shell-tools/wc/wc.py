@@ -16,7 +16,7 @@ l = True
 w = True
 c = True
 
-if args.words == True or args.line == True or args.bytes == True:
+if args.words or args.line or args.bytes:
     l = args.line
     w = args.words
     c = args.bytes
@@ -33,18 +33,15 @@ for file in args.path:
     file_data_with_newline[file] = f.read()
 
 def print_helper(line, word, byte, file_name):
-    text = [" "]
-    if l == True:
-        text.append(str(line))
-        text.append(" ")
-    if w == True:
-        text.append(str(word))
-        text.append(" ")
-    if c == True:
-        text.append(str(byte))
-        text.append(" ")
-    text.append(file_name)
-    print("".join(text))
+    parts = []
+    if l:
+        parts.append(str(line))
+    if w:
+        parts.append(str(word))
+    if c:
+        parts.append(str(byte))
+    parts.append(file_name)
+    print(" ".join(parts))
     
 for f in file_data:
     word_per_line = 0
