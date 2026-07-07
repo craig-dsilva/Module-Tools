@@ -14,4 +14,4 @@ set -euo pipefail
 # 4 I was tempted to take a bite of it.
 # 5 But this seemed like a bad idea...
 
-cat ../helper-files/*.txt -n
+cat -n ../helper-files/*.txt
