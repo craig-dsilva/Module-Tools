@@ -7,4 +7,4 @@ set -euo pipefail
 # It should be clear from your script's output that there have been 5 Entry events and 4 Exit events.
 # The word "Event" should not appear in your script's output.
 
-cat events-with-timestamps.txt | awk '{print $3, $4;}' | grep -v 'Event' | sort | uniq -c
+cat events.txt | awk '{print $1}' | sort | uniq -c | awk '{print $1}'
