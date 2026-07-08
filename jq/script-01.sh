@@ -6,4 +6,4 @@ set -euo pipefail
 # TODO: Write a command to output the name of the person.
 # Your output should be exactly the string "Selma", but should not contain any quote characters.
 
-jq -r .name person.json
+jq .name person.json

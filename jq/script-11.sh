@@ -6,4 +6,4 @@ set -euo pipefail
 # TODO: Write a command to output the total of adding together all scores from all games from all players.
 # Your output should be exactly the number 164.
 
-jq -r '[.[].scores | add] | add' scores.json
+jq '[.[].scores | add] | add' scores.json
