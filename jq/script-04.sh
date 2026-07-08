@@ -7,4 +7,4 @@ set -euo pipefail
 # Your output should contain 6 lines, each with just one word on it.
 # Your output should not contain any quote characters.
 
-cat scores.json | jq -r '.[].name'
+jq -r '.[].name' scores.json
