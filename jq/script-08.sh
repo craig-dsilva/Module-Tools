@@ -7,4 +7,4 @@ set -euo pipefail
 # Your output should contain 6 lines, each with one word and one number on it.
 # The first line should be "Ahmed 3" with no quotes.
 
-jq '.[] | "\(.name) \(.scores | length)"' scores.json
+cat scores.json | jq -r '.[] | "\(.name) \(.scores | length)"'
